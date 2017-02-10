@@ -318,3 +318,52 @@ for (var i=0; i<rentals.length;i++){ // updating payment for each case
 }
 
 }
+
+// Exercice 6 
+
+function modif(){
+
+var olddrivy=drivy;
+var delta;
+var oldprice=rentalPrice;
+var oldcom=commission;
+var oldassurance=assurance;
+var oldassistance=assistance;
+
+for (var i =0;i<rentals.length;i++){ // for each modification computing the new price
+  for (var j=0;j<rentalModifications.length;j++){
+    if(k!=0){
+      NumberofDays=getDays(rentals[i].returnDate,rentalModifications[k].pickupDate);
+      decreasing();
+      getPrice(); // trying to change the variable numberOfdays for computing the price with modifications but it doesn't work
+      delta=oldprice-rentalPrice; //computing the delta
+      if(delta>0){
+        rentalPrice=rentalPrice - delta;
+        else{
+          rentalPrice=rentalPrice + delta;
+
+        }
+        reduc();
+        pay();
+        com();
+      }
+    }
+    else {
+      //NumberofDays=getDays(rentals[i].returnDate,rentalModifications[k].pickupDate);
+      decreasing();
+      getPrice();
+      delta=oldprice-rentalPrice;
+      if(delta<0){
+        rentalPrice=rentalPrice + delta;
+        else{
+          rentalPrice=rentalPrice - delta;
+
+        }
+        reduc();
+        pay();
+        com();
+      }
+    }
+  }
+
+}
