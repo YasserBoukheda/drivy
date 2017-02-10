@@ -247,3 +247,27 @@ for (var i=0; i<rentals.length;i++) { // scanning all the rentals data to find e
   }
 
 }
+//Exercice 3
+
+function com(){
+  var rprice=0;
+  var commission=0;
+  var assurance = 0; 
+  var time =0;
+  var assistance=0;
+  var drivy =0;
+
+for (var i =0; i<rentals.length;i++){ // computing and replacing the values of the commission
+
+commission=(0.3*rentals[i].price);
+assurance = (0.5*commission);
+time=getDays(rentals[i].pickupDate,rentals[i].returnDate);
+assistance = time ;
+drivy = commission - (assurance + assistance);
+rentals[i].commission.insurance=assurance;
+rentals[i].commission.assistance=assistance;
+rentals[i].commission.drivy=drivy;
+
+}
+
+}
