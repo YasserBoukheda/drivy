@@ -286,3 +286,35 @@ rentals[i].price=rentals[i].price + 4*getDays(rentals[i].pickupDate,rentals[i].r
 }
 
 }
+// Exercice 5 
+
+function pay(){
+var k=actors[0].payment.length;
+for (var i=0; i<rentals.length;i++){ // updating payment for each case 
+  for (var j=0;j<k;j++){
+    switch(j){
+      case 0 : 
+      actors[i].payment[j].amount=rentals[i].price; // according to the exercise for each case
+      break 
+      case 1 : 
+      actors[i].payment[j].amount=rentals[i].price - rentals[i].price*0.3;
+      break;
+
+      case 2 : 
+      actors[i].payment[j].amount=rentals[i].commission.insurance; 
+      break;
+
+      case 3 : 
+      actors[i].payment[j].amount=rentals[i].commission.assistance;
+      break;
+
+      case 4 : 
+      actors[i].payment[j].amount=rentals[i].commission.drivy;
+      break;
+
+    }
+  }
+
+}
+
+}
