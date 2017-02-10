@@ -210,3 +210,40 @@ for (var i=0; i<rentals.length;i++) { // scanning all the rentals data to find e
 console.log(rentals);
 }
 
+// Exercice 2 
+
+function getPrice2(NumberofDays){
+
+var numberofkm =0 ;
+var NumberofDays =0 ;
+var carspriceperkm =0 ;
+var carspriceperday =0 ;
+var rentalPrice =0 ;
+
+for (var i=0; i<rentals.length;i++) { // scanning all the rentals data to find each datum needed
+  for (var j=0; j<cars.length;j++) { // scanning all thecars data to find each datum we need
+    if (cars[j].id==rentals[i].carId) { //matching id cars from rentals and from cars
+
+       NumberofDays = getDays(rentals[i].pickupDate,rentals[i].returnDate); //convert milliseconds into days
+       console.log(NumberofDays);
+       carspriceperday = cars[j].pricePerDay; // Take each car's price per day
+       console.log(carspriceperday);
+       carspriceperkm = cars[j].pricePerKm; // take each car's price per km
+       numberofkm = rentals[i].distance; // Take each achieved distance for each car
+       rentalPrice = NumberofDays*carspriceperday + numberofkm*carspriceperkm; // compute the rental Price according to the exercise rule
+      if ( NumberofDays > 1 && NumberofDays < 4)
+       rentals[i].price = rentalPrice - 0.1*rentalPrice; // replacing the old price by the computed price to update the data
+
+      if (NumberofDays>4&&NumberofDays<10){
+        rentals[i].price = rentalPrice - 0.3*rentalPrice;
+      }
+      
+      if  (NumberofDays>10){
+        rentals[i].price = rentalPrice - 0.5*rentalPrice;
+      }
+      }
+    }
+
+  }
+
+}
