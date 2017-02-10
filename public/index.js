@@ -271,3 +271,18 @@ rentals[i].commission.drivy=drivy;
 }
 
 }
+
+// Exercice 4 
+
+function reduc(){
+for (var i = 1; i<rentals.length;i++){
+
+if(rentals[i].options.deductibleReduction){ // checking if ther is an option and computing the new price 
+
+rentals[i].price=rentals[i].price + 4*getDays(rentals[i].pickupDate,rentals[i].returnDate); 
+
+}
+
+}
+
+}
